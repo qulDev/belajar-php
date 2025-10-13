@@ -31,6 +31,19 @@ try {
             $data = json_decode(file_get_contents('php://input'), true);
             createProvince($conn, $data);
             break;
+case "PUT":
+    if (!isset($_GET['id'])) {
+        echo json_encode([
+            "status" => "failed",
+            "code" => 400,
+            "message" => "Invalid input: ID is required for update",
+            "data" => []
+        ]);
+        return;
+    }
+        $data = json_decode(file_get_contents('php://input'), true);
+        updateProvince($conn, $_GET['id'], $data);
+    break;
         default:
             echo json_encode([
                 'message' => 'Method Not Allowed',
@@ -127,6 +140,17 @@ function getDetailProvince($conn,$id)  {
 }
 
 function createProvince($conn,$data)  {
+
+if (!isset(($data['name'])) || empty($data['name'])) {
+    echo json_encode([
+        "status" => "failed",
+        "code" => 400,
+        "message" => "Invalid input: Name is required",
+        "data" => []
+    ]);
+    return;
+}
+
     $name = $data['name'] ?? null;
     if (!$name) {
         echo json_encode([
@@ -139,7 +163,7 @@ function createProvince($conn,$data)  {
     }
 
     try {
-        $conn -> query("INSERT INTO provinces (name_provinces) VALUES ('$name')");
+        $conn -> query("INSERT INTO provinces (name_province) VALUES ('$name')");
         echo json_encode([
             "status" => "success",
             "code" => 201,
