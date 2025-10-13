@@ -122,5 +122,5 @@ function getDetailProvince($conn,$id)  {
     }
 }
 
-}
+
 ?>
