@@ -44,6 +44,18 @@ case "PUT":
         $data = json_decode(file_get_contents('php://input'), true);
         updateProvince($conn, $_GET['id'], $data);
     break;
+    case 'DELETE':
+        if (!isset($_GET['id'])) {
+            echo json_encode([
+                "status" => "failed",
+                "code" => 400,
+                "message" => "Invalid input: ID is required for deletion",
+                "data" => []
+            ]);
+            return;
+        }
+        deleteProvince($conn, $_GET['id']);
+        break;
         default:
             echo json_encode([
                 'message' => 'Method Not Allowed',
@@ -174,6 +186,81 @@ if (!isset(($data['name'])) || empty($data['name'])) {
             "status" => "failed",
             "code" => 500,
             "message" => "Failed to create province: " . $th->getMessage(),
+            "data" => []
+        ]);
+    }
+}
+
+function updateProvince($conn,$id,$data)  {
+    if (!isset(($data['name'])) || empty($data['name'])) {
+        echo json_encode([
+            "status" => "failed",
+            "code" => 400,
+            "message" => "Invalid input: Name is required",
+            "data" => []
+        ]);
+        return;
+
+    }
+
+    try {
+        $stmt = $conn->prepare("UPDATE provinces SET name_province = ? WHERE id_province = ?");
+        $stmt->bind_param("si", $data['name'], $id);
+        $stmt->execute();
+
+        if ($stmt->affected_rows === 0) {
+            echo json_encode([
+                "status" => "failed",
+                "code" => 404,
+                "message" => "Province not found",
+                "data" => []
+            ]);
+            return;
+        }
+
+        echo json_encode([
+            "status" => "success",
+            "code" => 200,
+            "message" => "Province updated successfully",
+            "data" => []
+        ]);
+    } catch (Throwable $th) {
+        echo json_encode([
+            "status" => "failed",
+            "code" => 500,
+            "message" => "Failed to update province: " . $th->getMessage(),
+            "data" => []
+        ]);
+    }
+}
+
+function deleteProvince($conn, $id) {
+    try {
+        $stmt = $conn->prepare("DELETE FROM provinces WHERE id_province = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+
+        if ($stmt->affected_rows === 0) {
+            echo json_encode([
+                "status" => "failed",
+                "code" => 404,
+                "message" => "Province not found",
+                "data" => []
+            ]);
+            return;
+        }
+
+        echo json_encode([
+            "status" => "success",
+            "code" => 200,
+            "message" => "Province deleted successfully",
+            "data" => []
+        ]);
+    } catch (Throwable $th) {
+        echo json_encode([
+            "status" => "failed",
+            "code" => 500,
+            "message" => "Failed to delete province: " . $th->getMessage(),
             "data" => []
         ]);
     }
