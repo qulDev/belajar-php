@@ -27,6 +27,10 @@ try {
         getAllProvinces($conn);  
         }
         break;
+        case "POST":
+            $data = json_decode(file_get_contents('php://input'), true);
+            createProvince($conn, $data);
+            break;
         default:
             echo json_encode([
                 'message' => 'Method Not Allowed',
@@ -122,5 +126,33 @@ function getDetailProvince($conn,$id)  {
     }
 }
 
+function createProvince($conn,$data)  {
+    $name = $data['name'] ?? null;
+    if (!$name) {
+        echo json_encode([
+            "status" => "failed",
+            "code" => 400,
+            "message" => "Name is required",
+            "data" => []
+        ]);
+        return;
+    }
+
+    try {
+        $conn -> query("INSERT INTO provinces (name_provinces) VALUES ('$name')");
+        echo json_encode([
+            "status" => "success",
+            "code" => 201,
+            "message" => "Province created successfully",
+        ]);
+    } catch (Throwable $th) {
+        echo json_encode([
+            "status" => "failed",
+            "code" => 500,
+            "message" => "Failed to create province: " . $th->getMessage(),
+            "data" => []
+        ]);
+    }
+}
 
 ?>
