@@ -1,0 +1,30 @@
+TUGAS 1
+Membuat Service dengan Arsitektur REST untuk Resource City dan District
+mendukung Operasi Sederhana
+1. Buatlah service dengan resource city dan district
+2. Buatlah masing-masing resource memiliki operasi lengkap dengan HTTP Request
+Method GET, POST, PUT dan DELETE
+3. Buktikan tugas dengan membuat laporan berisi :
+• Query hasil membuat tabel berdasarkan resource
+• Screenshot kode seluruh operasi pada setiap resource
+Contoh : Kode GET city, kode GET district dan seterusnya
+• Screenshot hasil testing dengan Postman atau tools testing lain untuk seluruh
+operasi setiap resource berserta perubahannya
+Contoh : Hasil request GET city, hasil request GET district
+4. Susun laporan berdasarkan resource dan operasi
+Contoh :
+• Resource city, kode operasi GET, hasil operasi GET
+• Resource city, kode operasi POST, hasil operasi POST dan seterusnya
+• Resource district, kode operasi PUT, hasil operasi PUT
+• Resource district, kode operasi DELETE, hasil operasi DELETE dan seterusnya
+5. Kumpulkan tugas dengan format sesuai melalui grup WhatsApp PWS ILKOM C S5.
+Format pengumpulan sebagai berikut:
+• Ekstensi/Type File : PDF
+• Nama File : tugas-1-{nim}.pdf
+Contoh : tugas-1-2301010001.pdf
+• Dikirim melalui grup WhatsApp : PWS ILKOM C S5
+6. BATAS WAKTU PENGUMPULAN PADA HARI SENIN PUKUL 07.59 WITA.
+KETIDAKSESUAIAN FORMAT ATAU WAKTU PENGUMPULAN YANG MELEWATI BATAS
+TIDAK DINILAI ATAU TIDAK DITERIMA DENGAN ALASAN APAPUN. WAKTU YANG DIAKUI
+ADALAH WAKTU YANG DITUNJUKKAN PADA PESAN WHATSAPP YANG SAYA DITERIMA
+PADA DEVICE SAYA. 
