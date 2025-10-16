@@ -1,0 +1,441 @@
+{
+  "info": {
+    "_postman_id": "tugas-1-2301010164",
+    "name": "REST API - City & District (NIM: 2301010164)",
+    "description": "Collection untuk testing REST API City dan District\nTugas 1 - Pemrograman Web Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "0. Dokumentasi API",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost/tugas-1-2301010164/index.php",
+          "protocol": "http",
+          "host": ["localhost"],
+          "path": ["tugas-1-2301010164", "index.php"]
+        },
+        "description": "Endpoint untuk melihat dokumentasi API dan list semua endpoint yang tersedia"
+      },
+      "response": []
+    },
+    {
+      "name": "CITY - Resource",
+      "item": [
+        {
+          "name": "1. GET All Cities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=city",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "city"
+                }
+              ]
+            },
+            "description": "Mengambil semua data city yang ada di database"
+          },
+          "response": []
+        },
+        {
+          "name": "2. GET City by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=city&id=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "city"
+                },
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID city yang ingin diambil"
+                }
+              ]
+            },
+            "description": "Mengambil data city berdasarkan ID tertentu"
+          },
+          "response": []
+        },
+        {
+          "name": "3. POST Create City",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Banjarmasin\",\n    \"province\": \"Kalimantan Selatan\",\n    \"population\": 657000,\n    \"area\": 98.46\n}"
+            },
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=city",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "city"
+                }
+              ]
+            },
+            "description": "Menambahkan city baru ke database"
+          },
+          "response": []
+        },
+        {
+          "name": "3b. POST Create City - Banjarbaru",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Banjarbaru\",\n    \"province\": \"Kalimantan Selatan\",\n    \"population\": 252000,\n    \"area\": 371.30\n}"
+            },
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=city",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "city"
+                }
+              ]
+            },
+            "description": "Menambahkan city Banjarbaru"
+          },
+          "response": []
+        },
+        {
+          "name": "3c. POST Create City - Martapura",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Martapura\",\n    \"province\": \"Kalimantan Selatan\",\n    \"population\": 130000,\n    \"area\": 60.50\n}"
+            },
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=city",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "city"
+                }
+              ]
+            },
+            "description": "Menambahkan city Martapura"
+          },
+          "response": []
+        },
+        {
+          "name": "4. PUT Update City",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Banjarmasin\",\n    \"province\": \"Kalimantan Selatan\",\n    \"population\": 700000,\n    \"area\": 100.00\n}"
+            },
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=city&id=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "city"
+                },
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID city yang ingin diupdate"
+                }
+              ]
+            },
+            "description": "Mengupdate data city yang sudah ada"
+          },
+          "response": []
+        },
+        {
+          "name": "5. DELETE City",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=city&id=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "city"
+                },
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID city yang ingin dihapus"
+                }
+              ]
+            },
+            "description": "Menghapus city dari database (akan menghapus district yang terkait juga karena CASCADE)"
+          },
+          "response": []
+        }
+      ],
+      "description": "Semua operasi CRUD untuk resource City"
+    },
+    {
+      "name": "DISTRICT - Resource",
+      "item": [
+        {
+          "name": "1. GET All Districts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=district",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "district"
+                }
+              ]
+            },
+            "description": "Mengambil semua data district dengan informasi city terkait"
+          },
+          "response": []
+        },
+        {
+          "name": "2. GET District by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=district&id=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "district"
+                },
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID district yang ingin diambil"
+                }
+              ]
+            },
+            "description": "Mengambil data district berdasarkan ID tertentu dengan informasi city"
+          },
+          "response": []
+        },
+        {
+          "name": "3. POST Create District",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Banjarmasin Tengah\",\n    \"city_id\": 1,\n    \"postal_code\": \"70111\",\n    \"population\": 75000\n}"
+            },
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=district",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "district"
+                }
+              ]
+            },
+            "description": "Menambahkan district baru ke database"
+          },
+          "response": []
+        },
+        {
+          "name": "3b. POST Create District - Banjarmasin Barat",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Banjarmasin Barat\",\n    \"city_id\": 1,\n    \"postal_code\": \"70112\",\n    \"population\": 80000\n}"
+            },
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=district",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "district"
+                }
+              ]
+            },
+            "description": "Menambahkan district Banjarmasin Barat"
+          },
+          "response": []
+        },
+        {
+          "name": "3c. POST Create District - Banjarbaru Utara",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Banjarbaru Utara\",\n    \"city_id\": 2,\n    \"postal_code\": \"70711\",\n    \"population\": 60000\n}"
+            },
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=district",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "district"
+                }
+              ]
+            },
+            "description": "Menambahkan district Banjarbaru Utara"
+          },
+          "response": []
+        },
+        {
+          "name": "4. PUT Update District",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Banjarmasin Tengah Updated\",\n    \"city_id\": 1,\n    \"postal_code\": \"70111\",\n    \"population\": 85000\n}"
+            },
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=district&id=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "district"
+                },
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID district yang ingin diupdate"
+                }
+              ]
+            },
+            "description": "Mengupdate data district yang sudah ada"
+          },
+          "response": []
+        },
+        {
+          "name": "5. DELETE District",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/tugas-1-2301010164/index.php?resource=district&id=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "path": ["tugas-1-2301010164", "index.php"],
+              "query": [
+                {
+                  "key": "resource",
+                  "value": "district"
+                },
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "ID district yang ingin dihapus"
+                }
+              ]
+            },
+            "description": "Menghapus district dari database"
+          },
+          "response": []
+        }
+      ],
+      "description": "Semua operasi CRUD untuk resource District"
+    }
+  ]
+}
