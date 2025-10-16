@@ -6,34 +6,6 @@ Resource: CITY dan DISTRICT
 Operasi: GET, POST, PUT, DELETE
 NIM: 2301010164
 ================================================================================
-
-QUERY PEMBUATAN TABEL:
-------------------------
-
--- Tabel City
-CREATE TABLE IF NOT EXISTS city (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    province VARCHAR(100) NOT NULL,
-    population INT,
-    area DECIMAL(10, 2),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-
--- Tabel District
-CREATE TABLE IF NOT EXISTS district (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    city_id INT NOT NULL,
-    postal_code VARCHAR(10),
-    population INT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (city_id) REFERENCES city(id) ON DELETE CASCADE
-);
-
-================================================================================
 ENDPOINT API:
 ------------------------
 1. City Resource:
